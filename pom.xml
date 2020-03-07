@@ -11,6 +11,8 @@
 
     <modules>
         <module>jdbctemplatedemo</module>
+        <module>scheduleddemo</module>
+        <module>maildemo</module>
     </modules>
 
 </project>
