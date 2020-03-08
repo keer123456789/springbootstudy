@@ -7,5 +7,5 @@
 
 文件夹说明  | 源码地址  | 博客地址
 ---- | ----- | ------ 
-【SpringBoot】数据持久化——JdbcTemplate  | [jdbctemplatedemo](./jdbctemplatedemo) | [https://blog.csdn.net/weixin_41938180/article/details/104656117](https://blog.csdn.net/weixin_41938180/article/details/104656117)
-【SpringBoot】邮件服务——发送邮件  | [maildemo](./maildemo) | [https://blog.csdn.net/weixin_41938180/article/details/104723587](https://blog.csdn.net/weixin_41938180/article/details/104723587)
+数据持久化——JdbcTemplate  | [jdbctemplatedemo](./jdbctemplatedemo) | [https://blog.csdn.net/weixin_41938180/article/details/104656117](https://blog.csdn.net/weixin_41938180/article/details/104656117)
+邮件服务——发送邮件  | [maildemo](./maildemo) | [https://blog.csdn.net/weixin_41938180/article/details/104723587](https://blog.csdn.net/weixin_41938180/article/details/104723587)
