@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  * @CreateTime: 2020-03-04 10:07
  * @Description:
  */
-@RestController()
+@RestController
 public class UserController {
     protected Logger logger = LoggerFactory.getLogger(UserController.class);
 

@@ -1,11 +1,11 @@
-package com.keer.maildemo;
+package com.keer.mybatisdemo;
 
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MaildemoApplicationTests {
+class MybatisdemoApplicationTests {
 
     @Test
     void contextLoads() {

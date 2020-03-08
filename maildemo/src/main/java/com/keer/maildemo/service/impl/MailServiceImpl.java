@@ -44,10 +44,10 @@ public class MailServiceImpl implements MailService {
         message.setTo(receiverMail);
         message.setSubject(subject);
         message.setText(content);
-        try{
+        try {
             mailSender.send(message);
             logger.info("简单邮件已经发送");
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             logger.error("简单邮件发送失败！！！");
         }
@@ -57,11 +57,11 @@ public class MailServiceImpl implements MailService {
     public void sendHtmlMail(String receiverMail, String subject, String content) {
         MimeMessage message = mailSender.createMimeMessage();
         try {
-            MimeMessageHelper helper=new MimeMessageHelper(message,true);
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(senderMail);
             helper.setTo(receiverMail);
             helper.setSubject(subject);
-            helper.setText(content,true);
+            helper.setText(content, true);
 
             mailSender.send(message);
             logger.info("html邮件发送成功！！");
@@ -73,17 +73,17 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendAttachmentsMail(String receiverMail, String subject, String content, String filePath) {
-        MimeMessage message=mailSender.createMimeMessage();
+        MimeMessage message = mailSender.createMimeMessage();
         try {
-            MimeMessageHelper helper=new MimeMessageHelper(message,true);
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(senderMail);
             helper.setTo(receiverMail);
             helper.setSubject(subject);
-            helper.setText(content,true);
+            helper.setText(content, true);
 
-            FileSystemResource file=new FileSystemResource(new File(filePath));
-            String filename=file.getFile().getName();
-            helper.addAttachment(filename,file);
+            FileSystemResource file = new FileSystemResource(new File(filePath));
+            String filename = file.getFile().getName();
+            helper.addAttachment(filename, file);
 
             mailSender.send(message);
             logger.info("带附件的邮件已经发送。");
@@ -97,20 +97,20 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendThymeleafMail(String receiverMail, String subject, User user) {
-        MimeMessage message=mailSender.createMimeMessage();
+        MimeMessage message = mailSender.createMimeMessage();
         try {
-            MimeMessageHelper helper=new MimeMessageHelper(message,true);
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(senderMail);
             helper.setTo(receiverMail);
             helper.setSubject(subject);
 
-            Context context=new Context();
+            Context context = new Context();
             context.setVariable("username", user.getName());
-            context.setVariable("num",user.getNum());
+            context.setVariable("num", user.getNum());
             context.setVariable("department", user.getDepartment());
             String process = templateEngine.process("mail.html", context);
 
-            helper.setText(process,true);
+            helper.setText(process, true);
             mailSender.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();

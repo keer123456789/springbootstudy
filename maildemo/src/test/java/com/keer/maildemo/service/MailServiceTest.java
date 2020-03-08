@@ -56,10 +56,10 @@ public class MailServiceTest {
     @DisplayName("发送模板html邮件")
     public void testThymeleafMail() {
         User user = new User();
-        user.setName("张经纬");
-        user.setNum("123");
-        user.setDepartment("mail");
-        mailService.sendThymeleafMail("1678129515@qq.com", "Test use springboot send mail", user);
+        user.setName("王国连");
+        user.setNum("135");
+        user.setDepartment("教务处");
+        mailService.sendThymeleafMail("15110074528@163.com", "Test use springboot send mail", user);
 
     }
 
