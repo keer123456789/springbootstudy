@@ -9,3 +9,4 @@
 ---- | ----- | ------ 
 数据持久化——JdbcTemplate  | [jdbctemplatedemo](./jdbctemplatedemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/104656117)
 邮件服务——发送邮件  | [maildemo](./maildemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/104723587)
+数据持久化——mybatis使用 | [mybatisdemo](./mybatisdemo) |[https://blog.csdn.net/weixin_41938180/article/details/104747564](https://blog.csdn.net/weixin_41938180/article/details/104747564)
