@@ -24,8 +24,9 @@ import java.util.function.UnaryOperator;
 @Service
 public class PeopleServiceImpl implements PeopleService {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
+
     PeopleMapper peopleMapper;
+
 
     @Override
     public WebResult getAllPeopleInfo() {

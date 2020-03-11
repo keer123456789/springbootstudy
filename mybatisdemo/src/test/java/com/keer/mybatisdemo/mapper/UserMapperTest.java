@@ -2,12 +2,15 @@ package com.keer.mybatisdemo.mapper;
 
 import com.keer.mybatisdemo.pojo.User;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -23,7 +26,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @DisplayName("用户接口测试")
 public class UserMapperTest {
 
-    @Autowired
+    @MockBean
     UserMapper userMapper;
 
     @Test

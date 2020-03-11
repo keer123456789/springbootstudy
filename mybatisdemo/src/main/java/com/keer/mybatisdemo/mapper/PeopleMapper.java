@@ -1,9 +1,7 @@
 package com.keer.mybatisdemo.mapper;
 
 import com.keer.mybatisdemo.pojo.People;
-import com.keer.mybatisdemo.pojo.User;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,7 +12,6 @@ import java.util.List;
  * @CreateTime: 2020-03-08 20:16
  * @Description:
  */
-@Component
 public interface PeopleMapper {
     /**
      * 查询全部个人信息

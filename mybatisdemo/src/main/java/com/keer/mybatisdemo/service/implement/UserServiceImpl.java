@@ -19,9 +19,9 @@ import java.util.List;
  * @Description: 用户接口实现
  */
 @Service
-public class UserSeviceImpl implements UserService {
+public class UserServiceImpl implements UserService {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
+
     UserMapper userMapper;
 
     /**
@@ -61,7 +61,7 @@ public class UserSeviceImpl implements UserService {
     public WebResult getUserInfoByID(String id) {
         WebResult webResult = new WebResult();
         User user = userMapper.getUserInfoByID(id);
-        if (user.equals(null)) {
+        if (user==null) {
             webResult.setMessage("select user info by id fail");
             webResult.setStatus(WebResult.ERROR);
             logger.error("select user info by id fail");

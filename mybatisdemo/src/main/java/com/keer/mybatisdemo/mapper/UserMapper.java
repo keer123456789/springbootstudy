@@ -13,7 +13,6 @@ import java.util.List;
  * @CreateTime: 2020-03-08 11:06
  * @Description:
  */
-@Component
 public interface UserMapper {
     /**
      * 获取全部用户信息

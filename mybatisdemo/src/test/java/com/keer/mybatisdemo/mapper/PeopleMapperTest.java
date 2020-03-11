@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -17,10 +18,9 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @Description:
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @DisplayName("人员接口测试")
 public class PeopleMapperTest {
-    @Autowired
+    @MockBean
     PeopleMapper peopleMapper;
 
     @Test
