@@ -13,12 +13,14 @@ import com.keer.mybatisdemo.pojo.WebResult;
 public interface PeopleService {
     /**
      * 获取全部人员信息
+     *
      * @return
      */
     WebResult getAllPeopleInfo();
 
     /**
      * 增加人员信息
+     *
      * @param people
      * @return
      */
@@ -26,6 +28,7 @@ public interface PeopleService {
 
     /**
      * 根据用户id查询用户信息
+     *
      * @param id
      * @return
      */
@@ -33,14 +36,16 @@ public interface PeopleService {
 
     /**
      * 根据人员id更改人员姓名
+     *
      * @param name
      * @param id
      * @return
      */
-    WebResult updatePeopleNameByID(String name,int id);
+    WebResult updatePeopleNameByID(String name, int id);
 
     /**
      * 根据用户id删除人员信息
+     *
      * @param id
      * @return
      */

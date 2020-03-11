@@ -6,7 +6,6 @@ import com.keer.mybatisdemo.pojo.WebResult;
 import com.keer.mybatisdemo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -61,7 +60,7 @@ public class UserServiceImpl implements UserService {
     public WebResult getUserInfoByID(String id) {
         WebResult webResult = new WebResult();
         User user = userMapper.getUserInfoByID(id);
-        if (user==null) {
+        if (user == null) {
             webResult.setMessage("select user info by id fail");
             webResult.setStatus(WebResult.ERROR);
             logger.error("select user info by id fail");

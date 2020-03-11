@@ -2,17 +2,14 @@ package com.keer.mybatisdemo.mapper;
 
 import com.keer.mybatisdemo.pojo.User;
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @BelongsProject: spring-boot-study
@@ -22,11 +19,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Description:
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @DisplayName("用户接口测试")
+@EnableAutoConfiguration
+@SpringBootTest
+@Transactional
 public class UserMapperTest {
 
-    @MockBean
+    @Autowired
     UserMapper userMapper;
 
     @Test
@@ -47,18 +46,24 @@ public class UserMapperTest {
     @Test
     @DisplayName("根据用户id获取用户信息")
     public void testGetUserInfoByID() {
-        Assert.assertEquals("张",userMapper.getUserInfoByID("1").getName());
+        User user = new User("keer", "男", "2");
+        Assert.assertEquals(1, userMapper.addUserInfo(user));
+        Assert.assertEquals("keer", userMapper.getUserInfoByID("2").getName());
     }
 
     @Test
     @DisplayName("根据用户id更新用户姓名")
     public void testUpdateUserNameByID() {
-        Assert.assertEquals(1,userMapper.updateUserNameByID("可耳", "2"));
+        User user = new User("keer", "男", "2");
+        Assert.assertEquals(1, userMapper.addUserInfo(user));
+        Assert.assertEquals(1, userMapper.updateUserNameByID("可耳", "2"));
     }
 
     @Test
     @DisplayName("根据用户id删除用户信息")
     public void testDeleteUserInfoByID() {
-        Assert.assertEquals(1,userMapper.deleteUserInfoByID("2"));
+        User user = new User("keer", "男", "2");
+        Assert.assertEquals(1, userMapper.addUserInfo(user));
+        Assert.assertEquals(1, userMapper.deleteUserInfoByID("2"));
     }
 }

@@ -6,9 +6,10 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @BelongsProject: spring-boot-study
@@ -19,8 +20,11 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @DisplayName("人员接口测试")
+@EnableAutoConfiguration
+@SpringBootTest
+@Transactional
 public class PeopleMapperTest {
-    @MockBean
+    @Autowired
     PeopleMapper peopleMapper;
 
     @Test
@@ -38,19 +42,25 @@ public class PeopleMapperTest {
 
     @Test
     @DisplayName("根据主键id查询人员信息")
-    public void testGetPeopleInfoByID(){
-        Assert.assertEquals("keer",peopleMapper.getPeopleInfoByID(1).getName());
+    public void testGetPeopleInfoByID() {
+        People people = new People("keer", 1, 25, "湖北武汉加油！！");
+        Assert.assertEquals(1, peopleMapper.addPeopleInfo(people));
+        Assert.assertEquals("keer", peopleMapper.getPeopleInfoByID(1).getName());
     }
 
     @Test
     @DisplayName("根据id更改人员姓名")
-    public void testUpdatePeopleNameByID(){
-        Assert.assertEquals(1,peopleMapper.updatePeopleNameByID("可耳",1));
+    public void testUpdatePeopleNameByID() {
+        People people = new People("keer", 1, 25, "湖北武汉加油！！");
+        Assert.assertEquals(1, peopleMapper.addPeopleInfo(people));
+        Assert.assertEquals(1, peopleMapper.updatePeopleNameByID("可耳", 1));
     }
 
     @Test
     @DisplayName("根据id删除人员信息")
-    public void testDeletePeopleInfoByID(){
-        Assert.assertEquals(1,peopleMapper.deletePeopleInfoByID(1));
+    public void testDeletePeopleInfoByID() {
+        People people = new People("keer", 1, 25, "湖北武汉加油！！");
+        Assert.assertEquals(1, peopleMapper.addPeopleInfo(people));
+        Assert.assertEquals(1, peopleMapper.deletePeopleInfoByID(1));
     }
 }

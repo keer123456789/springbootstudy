@@ -1,10 +1,8 @@
 package com.keer.mybatisdemo.service.implement;
 
 import com.keer.mybatisdemo.mapper.UserMapper;
-import com.keer.mybatisdemo.pojo.People;
 import com.keer.mybatisdemo.pojo.User;
 import com.keer.mybatisdemo.pojo.WebResult;
-import com.keer.mybatisdemo.service.UserService;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;

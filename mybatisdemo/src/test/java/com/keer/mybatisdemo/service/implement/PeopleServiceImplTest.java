@@ -3,7 +3,6 @@ package com.keer.mybatisdemo.service.implement;
 import com.keer.mybatisdemo.mapper.PeopleMapper;
 import com.keer.mybatisdemo.pojo.People;
 import com.keer.mybatisdemo.pojo.WebResult;
-import com.keer.mybatisdemo.service.implement.PeopleServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;

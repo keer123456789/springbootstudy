@@ -41,13 +41,13 @@ public class PeopleController {
     }
 
     @PostMapping("/updatePeopleNameByID")
-    public WebResult updatePeopleNameByID(@RequestBody People people){
+    public WebResult updatePeopleNameByID(@RequestBody People people) {
         logger.info("接收到请求：/getPeopleInfoByID/{id},data: " + people.toString());
-        return peopleService.updatePeopleNameByID(people.getName(),people.getId());
+        return peopleService.updatePeopleNameByID(people.getName(), people.getId());
     }
 
     @GetMapping("/deletePeopleInfoByID/{id}")
-    public WebResult deletePeopleInfoByID(@PathVariable int id){
+    public WebResult deletePeopleInfoByID(@PathVariable int id) {
         logger.info("接收到请求：/deletePeopleInfoByID/{id},data: " + id);
         return peopleService.deletePeopleInfoByID(id);
     }

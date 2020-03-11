@@ -13,12 +13,14 @@ import com.keer.mybatisdemo.pojo.WebResult;
 public interface UserService {
     /**
      * 获得所有用户的信息
+     *
      * @return
      */
     WebResult getAllUserInfo();
 
     /**
      * 增加用户信息
+     *
      * @param user
      * @return
      */
@@ -26,6 +28,7 @@ public interface UserService {
 
     /**
      * 根据id查询用户信息
+     *
      * @param id
      * @return
      */
@@ -33,6 +36,7 @@ public interface UserService {
 
     /**
      * 根据用户id更新用户姓名
+     *
      * @param user
      * @return
      */
@@ -40,6 +44,7 @@ public interface UserService {
 
     /**
      * 根据用户id删除用户信息
+     *
      * @param id
      * @return
      */

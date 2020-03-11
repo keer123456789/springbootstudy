@@ -1,9 +1,9 @@
 package com.keer.mybatisdemo.controller;
 
 import com.google.gson.Gson;
-import com.keer.mybatisdemo.pojo.People;
+import com.keer.mybatisdemo.pojo.User;
 import com.keer.mybatisdemo.pojo.WebResult;
-import com.keer.mybatisdemo.service.PeopleService;
+import com.keer.mybatisdemo.service.UserService;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,18 +21,17 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
 /**
  * @BelongsProject: spring-boot-study
  * @BelongsPackage: com.keer.mybatisdemo.controller
  * @Author: keer
- * @CreateTime: 2020-03-10 16:30
+ * @CreateTime: 2020-03-11 20:58
  * @Description:
  */
 @RunWith(SpringRunner.class)
-@DisplayName("人员API接口测试")
-@WebMvcTest(PeopleController.class)
-public class PeopleControllerTest {
+@DisplayName("用户API接口测试")
+@WebMvcTest(UserController.class)
+public class UserControllerTest {
     @SpringBootApplication(scanBasePackages = {"com.keer.mybatisdemo.controller"})
     static class InnerConfig {
     }
@@ -41,37 +40,37 @@ public class PeopleControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    PeopleService peopleService;
+    UserService UserService;
 
     @Before
     public void setup() {
         WebResult webResult = new WebResult();
         webResult.setStatus(WebResult.SUCCESS);
 
-        Mockito.when(peopleService.getAllPeopleInfo()).thenReturn(webResult);
-        Mockito.when(peopleService.addPeopleInfo(Mockito.any())).thenReturn(webResult);
-        Mockito.when(peopleService.getPeopleInfoByID(Mockito.anyInt())).thenReturn(webResult);
-        Mockito.when(peopleService.updatePeopleNameByID(Mockito.anyString(), Mockito.anyInt())).thenReturn(webResult);
-        Mockito.when(peopleService.deletePeopleInfoByID(Mockito.anyInt())).thenReturn(webResult);
+        Mockito.when(UserService.getAllUserInfo()).thenReturn(webResult);
+        Mockito.when(UserService.addUserInfo(Mockito.any())).thenReturn(webResult);
+        Mockito.when(UserService.getUserInfoByID(Mockito.anyString())).thenReturn(webResult);
+        Mockito.when(UserService.updateUserNameByID(Mockito.any())).thenReturn(webResult);
+        Mockito.when(UserService.deleteUserInfoByID(Mockito.anyString())).thenReturn(webResult);
     }
 
     @Test
-    @DisplayName(value = "测试获取全部信息接口")
-    public void testGetAllPeopleInfo() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/getAllPeopleInfo"))
+    @DisplayName(value = "测试获取全部用户信息接口")
+    public void testGetAllUserInfo() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/getAllUserInfo"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("0")));
     }
 
     @Test
-    @DisplayName(value = "增加人员接口")
-    public void testAddPeopleInfo() throws Exception {
+    @DisplayName(value = "增加用户信息接口")
+    public void testAddUserInfo() throws Exception {
         Gson gson = new Gson();
-        People people = new People("java", 1, 12, "spring");
-        String json = gson.toJson(people);
+        User user = new User("java", "太监", "1");
+        String json = gson.toJson(user);
         mockMvc.perform(MockMvcRequestBuilders
-                .post("/addPeopleInfo")
+                .post("/addUserInfo")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -80,22 +79,22 @@ public class PeopleControllerTest {
     }
 
     @Test
-    @DisplayName(value = "通过id查找人员信息")
-    public void testGetPeopleInfoByID() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/getPeopleInfoByID/2"))
+    @DisplayName(value = "根据用户ID查询用户信息接口")
+    public void testGetUserInfoByID() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/getUserInfoByID/2"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("0")));
     }
 
     @Test
-    @DisplayName(value = "根据id更新人员姓名")
-    public void testUpdatePeopleNameByID() throws Exception {
+    @DisplayName(value = "根据用户ID更新用户姓名接口")
+    public void testUpdateUserNameByID() throws Exception {
         Gson gson = new Gson();
-        People people = new People("java", 1, 12, "spring");
-        String json = gson.toJson(people);
+        User user = new User("java", "太监", "1");
+        String json = gson.toJson(user);
         mockMvc.perform(MockMvcRequestBuilders
-                .post("/updatePeopleNameByID")
+                .post("/updateUserNameByID")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -105,13 +104,13 @@ public class PeopleControllerTest {
     }
 
     @Test
-    @DisplayName(value = "根据ID删除用户信息")
-    public void testDeletePeopleInfoByID() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/deletePeopleInfoByID/2"))
+    @DisplayName(value = "根据用户ID删除用户信息接口")
+    public void testDeleteUserInfoByID() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/deleteUserInfoByID/2"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("0")));
-    }
 
+    }
 
 }
