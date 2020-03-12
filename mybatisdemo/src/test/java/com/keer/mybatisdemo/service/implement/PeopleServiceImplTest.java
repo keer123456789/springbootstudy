@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.internal.verification.VerificationModeFactory;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
@@ -58,6 +59,7 @@ public class PeopleServiceImplTest {
         WebResult webResult = peopleService.getPeopleInfoByID(alexID);
         People people = (People) webResult.getData();
         Assertions.assertThat(people.getId()).isEqualTo(alexID);
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).getPeopleInfoByID(Mockito.anyInt());
     }
 
 
@@ -67,6 +69,7 @@ public class PeopleServiceImplTest {
         int error = -1;
         WebResult webResult = peopleService.getPeopleInfoByID(error);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.ERROR);
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).getPeopleInfoByID(Mockito.anyInt());
     }
 
     @Test
@@ -79,6 +82,7 @@ public class PeopleServiceImplTest {
         WebResult webResult = peopleService.getAllPeopleInfo();
         List<People> foundAllPeople = (List<People>) webResult.getData();
         Assertions.assertThat(foundAllPeople).hasSize(3).extracting(People::getName).contains(bob.getName(), alex.getName(), john.getName());
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).getAllPeopleInfo();
     }
 
     @Test
@@ -88,6 +92,7 @@ public class PeopleServiceImplTest {
         Mockito.when(peopleMapper.addPeopleInfo(bob)).thenReturn(1);
         WebResult webResult = peopleService.addPeopleInfo(bob);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).addPeopleInfo(Mockito.any());
     }
 
     @Test
@@ -97,6 +102,7 @@ public class PeopleServiceImplTest {
         int alexID = 2;
         WebResult webResult = peopleService.updatePeopleNameByID(changeName, alexID);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).updatePeopleNameByID(Mockito.anyString(), Mockito.anyInt());
     }
 
     @Test
@@ -105,5 +111,6 @@ public class PeopleServiceImplTest {
         int johnID = 3;
         WebResult webResult = peopleService.deletePeopleInfoByID(johnID);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(peopleMapper, VerificationModeFactory.times(1)).deletePeopleInfoByID(Mockito.anyInt());
     }
 }

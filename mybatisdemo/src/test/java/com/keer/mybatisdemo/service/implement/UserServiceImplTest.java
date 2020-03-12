@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.internal.verification.VerificationModeFactory;
+import org.mockito.verification.VerificationAfterDelay;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
@@ -56,6 +58,7 @@ public class UserServiceImplTest {
         WebResult webResult = userService.getUserInfoByID(alexID);
         User found = (User) webResult.getData();
         Assertions.assertThat(found.getId()).isEqualTo(alexID);
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).getUserInfoByID(Mockito.anyString());
     }
 
 
@@ -65,6 +68,7 @@ public class UserServiceImplTest {
         String errorID = "error";
         WebResult webResult = userService.getUserInfoByID(errorID);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.ERROR);
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).getUserInfoByID(Mockito.anyString());
     }
 
     @Test
@@ -77,6 +81,8 @@ public class UserServiceImplTest {
         WebResult webResult = userService.getAllUserInfo();
         List<User> foundAllPeople = (List<User>) webResult.getData();
         Assertions.assertThat(foundAllPeople).hasSize(3).extracting(User::getName).contains(bob.getName(), alex.getName(), john.getName());
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).getAll();
+
     }
 
     @Test
@@ -86,6 +92,7 @@ public class UserServiceImplTest {
         Mockito.when(userMapper.addUserInfo(bob)).thenReturn(1);
         WebResult webResult = userService.addUserInfo(bob);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).addUserInfo(Mockito.any());
     }
 
     @Test
@@ -97,6 +104,7 @@ public class UserServiceImplTest {
         changeName.setName("alexChange");
         WebResult webResult = userService.updateUserNameByID(changeName);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).updateUserNameByID(Mockito.anyString(),Mockito.anyString());
     }
 
     @Test
@@ -105,6 +113,7 @@ public class UserServiceImplTest {
         String johnID = "3";
         WebResult webResult = userService.deleteUserInfoByID(johnID);
         Assertions.assertThat(webResult.getStatus()).isEqualTo(WebResult.SUCCESS);
+        Mockito.verify(userMapper, VerificationModeFactory.times(1)).deleteUserInfoByID(Mockito.anyString());
     }
 
 }
