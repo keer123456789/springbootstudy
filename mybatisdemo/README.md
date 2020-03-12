@@ -1,8 +1,8 @@
 # MyBatis 例子
 ## 1 介绍
-主要对mybatis使用的两种方式进行使用。
-Mybatis主要使用说明，请看CSDN博客：[https://blog.csdn.net/weixin_41938180/article/details/104747564](https://blog.csdn.net/weixin_41938180/article/details/104747564)
-该项目进行了完整的单元测试，具体讲解参见CSDN博客：[]()
+- 主要对mybatis使用的两种方式进行使用。    
+Mybatis主要使用说明，请看CSDN博客：[https://blog.csdn.net/weixin_41938180/article/details/104747564](https://blog.csdn.net/weixin_41938180/article/details/104747564)     
+- 该项目进行了完整的单元测试，具体讲解参见CSDN博客：[]()
 ## 2. 使用说明
 1. 将`mybatis.sql`文件在mysql数据库运行
 2. 启动springboot项目
