@@ -23,11 +23,11 @@ import java.util.List;
 public class AspectLog {
     protected Logger logger= LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("execution(public * com.keer.aopdemo.Controller.get1(..))")
+    @Pointcut("execution(* com.keer.aopdemo.Controller.get1(..))")
     public void aspectLog1() {
     }
 
-    @Pointcut("execution(public * com.keer.aopdemo.Controller.get2(..))")
+    @Pointcut("execution(* com.keer.aopdemo.Controller.get2(..))")
     public void aspectLog2() {
     }
 

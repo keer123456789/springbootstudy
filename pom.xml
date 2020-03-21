@@ -13,6 +13,7 @@
         <module>jdbctemplatedemo</module>
         <module>scheduleddemo</module>
         <module>maildemo</module>
+        <module>aopdemo</module>
     </modules>
 
 </project>
