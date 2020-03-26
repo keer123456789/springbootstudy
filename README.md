@@ -12,3 +12,4 @@
 数据持久化——mybatis使用 | [mybatisdemo](./mybatisdemo) |[https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/104747564)
 AOP 编程Demo | [aopdemo](./aopdemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105008986)
 上传文件 | [multipartfiledemo](./multipartfiledemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105125204)
+单元测试 | [unit test demo](./mybatisdemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105128061)
