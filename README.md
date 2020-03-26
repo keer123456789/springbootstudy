@@ -11,3 +11,4 @@
 邮件服务——发送邮件  | [maildemo](./maildemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/104723587)
 数据持久化——mybatis使用 | [mybatisdemo](./mybatisdemo) |[https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/104747564)
 AOP 编程Demo | [aopdemo](./aopdemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105008986)
+上传文件 | [multipartfiledemo](./multipartfiledemo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105125204)
