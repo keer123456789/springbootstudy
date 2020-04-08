@@ -15,6 +15,7 @@
         <module>maildemo</module>
         <module>aopdemo</module>
         <module>multipartfiledemo</module>
+        <module>security_demo_1</module>
     </modules>
 
 </project>
