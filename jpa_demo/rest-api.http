@@ -1,0 +1,73 @@
+
+
+#增加用户信息
+POST http://127.0.0.1:8080/jpa/addUser
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "keer",
+  "password": "133333",
+  "address": "北京市平谷区"
+}
+
+###
+
+#更改用户信息
+POST http://127.0.0.1:8080/jpa/updateUser
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "keer",
+  "password": "133333",
+  "address": "北京市平谷区"
+}
+
+###
+#删除用户
+POST http://127.0.0.1:8080/jpa/deleteUser
+Content-Type: application/json
+
+{
+  "id": 7,
+  "name": "keer",
+  "password": "12345678",
+  "address": "北京市平谷区"
+}
+
+###
+#批量增加用户
+POST http://127.0.0.1:8080/jpa/addUsers
+Content-Type: application/json
+
+[
+  {
+    "name": "zhang",
+    "password": "123",
+    "address": "北京市平谷区"
+  },
+  {
+    "name": "jing",
+    "password": "2234",
+    "address": "北京市平谷区"
+  },
+  {
+    "name": "lun",
+    "password": "3434",
+    "address": "北京市平谷区"
+  }
+]
+
+###
+
+#更改用户名
+POST http://127.0.0.1:8080/jpa/updateUserNameById
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "keer"
+}
+
+###
