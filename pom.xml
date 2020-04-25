@@ -16,6 +16,7 @@
         <module>aopdemo</module>
         <module>multipartfiledemo</module>
         <module>security_demo_1</module>
+        <module>count_codefile_row</module>
     </modules>
 
 </project>
