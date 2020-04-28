@@ -59,5 +59,12 @@ public class UserController {
         return userService.removeUser(user);
     }
 
+    @RequestMapping(value = "/selectAllUsers", method = RequestMethod.GET)
+    public WebResult selectAllUsers() {
+        logger.info("接收到查询所有用户的请求，请求信息：");
+        return userService.selectAllUsers();
+    }
+
+
 
 }

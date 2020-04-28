@@ -8,16 +8,18 @@ import java.io.IOException;
  * @Description:
  */
 public class Main {
-    static long fileCount = 0;
-    static long allFileRow = 0;
-    static long codeLines = 0;
-    static long commentLines = 0;
-    static long blankLines = 0;
-
     public static void main(String[] args) throws IOException {
-        String path = "E:/code/java/spring-boot-study";
-        String glob = "java";
-        FileRowCount fileRowCount = new FileRowCount(path, glob);
+        if(args.length!=4||!(args[0].equals("path"))||args[2].equals("type")){
+            System.out.println("param error");
+            System.out.println("example param: path file/path type java");
+            System.out.println("param type now just support: java,py");
+            return;
+        }
+
+        String path= args[1];
+        String type= args[3];
+
+        FileRowCount fileRowCount = new FileRowCount(path, type);
         fileRowCount.countRow();
         System.out.println(fileRowCount.toString());
     }

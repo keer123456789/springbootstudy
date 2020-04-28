@@ -53,4 +53,10 @@ public interface UserService {
      * @return
      */
     WebResult updateUserNameById(String name, int id);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    WebResult selectAllUsers();
 }

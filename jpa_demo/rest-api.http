@@ -5,7 +5,7 @@ POST http://127.0.0.1:8080/jpa/addUser
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 4,
   "name": "keer",
   "password": "133333",
   "address": "北京市平谷区"
@@ -30,10 +30,10 @@ POST http://127.0.0.1:8080/jpa/deleteUser
 Content-Type: application/json
 
 {
-  "id": 7,
-  "name": "keer",
-  "password": "12345678",
-  "address": "北京市平谷区"
+  "name": "java",
+  "password": "hello world",
+  "address": "main()",
+  "id": 6
 }
 
 ###
@@ -43,20 +43,16 @@ Content-Type: application/json
 
 [
   {
-    "name": "zhang",
-    "password": "123",
-    "address": "北京市平谷区"
+    "name": "可耳",
+    "password": "love",
+    "address": "北京市"
   },
   {
-    "name": "jing",
-    "password": "2234",
-    "address": "北京市平谷区"
-  },
-  {
-    "name": "lun",
-    "password": "3434",
-    "address": "北京市平谷区"
+    "name": "java",
+    "password": "hello world",
+    "address": "main()"
   }
+
 ]
 
 ###
@@ -70,4 +66,8 @@ Content-Type: application/json
   "name": "keer"
 }
 
+###
+
+GET http://127.0.0.1:8080/jpa/selectAllUsers
+Accept: application/json
 ###

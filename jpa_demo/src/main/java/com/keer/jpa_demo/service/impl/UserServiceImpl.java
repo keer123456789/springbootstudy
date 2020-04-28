@@ -104,24 +104,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public WebResult updateUser(User user) {
         WebResult webResult = new WebResult();
-
-        User oldUser = userDao.findById(user.getId());
-        logger.info("查询信息：" + user.toString());
-        if (oldUser != null) {
-            User newUser = userDao.save(user);
-            logger.info("更新信息：" + newUser.toString());
-            webResult.setMessage("更新操作成功");
-            webResult.setData(newUser);
-            webResult.setStatus(WebResult.SUCCESS);
-            return webResult;
-        } else {
-            User newUser = userDao.save(user);
-            logger.info("插入信息信息：" + newUser.toString());
-            webResult.setMessage("插入操作成功");
-            webResult.setData(newUser);
-            webResult.setStatus(WebResult.SUCCESS);
-            return webResult;
-        }
+        User newUser = userDao.save(user);
+        logger.info("更新信息：" + newUser.toString());
+        webResult.setMessage("更新操作成功");
+        webResult.setData(newUser);
+        webResult.setStatus(WebResult.SUCCESS);
+        return webResult;
     }
 
     /**
@@ -142,6 +130,21 @@ public class UserServiceImpl implements UserService {
             webResult.setStatus(WebResult.ERROR);
             webResult.setMessage("更新操作失败");
         }
+        return webResult;
+    }
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    @Override
+    public WebResult selectAllUsers(){
+        List<User> users= (List<User>) userDao.findAll();
+        WebResult webResult=new WebResult();
+        webResult.setStatus(WebResult.SUCCESS);
+        webResult.setMessage("查询成功");
+        webResult.setData(users);
+        logger.info("查询成功，数据："+users.toString());
         return webResult;
     }
 }
