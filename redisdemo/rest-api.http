@@ -1,0 +1,35 @@
+
+
+#增加用户信息
+POST http://127.0.0.1:8080/cache/user/addUser
+Content-Type: application/json
+
+{
+
+  "name": "keer",
+  "password": "12",
+  "address": "北京市平谷区"
+}
+
+###
+
+GET http://127.0.0.1:8080/cache/user/findUserById/1
+Accept: application/json
+###
+
+#增加用户信息
+POST http://127.0.0.1:8080/cache/student/addStudent
+Content-Type: application/json
+
+{
+  "id": "1521310135",
+  "name": "keer",
+  "school": "北京大学",
+  "classroom": "计算机2班"
+}
+
+###
+
+GET http://127.0.0.1:8080/cache/student/findStudentById/1
+Accept: application/json
+###
