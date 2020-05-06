@@ -1,0 +1,100 @@
+
+#增加用户信息
+POST http://127.0.0.1:8080/security/addUser
+Content-Type: application/json
+
+{
+
+  "name": "小米",
+  "password": "123456"
+}
+
+
+###
+#根据用户id查询用户信息
+GET http://localhost:8080//getUserInfoByID/5
+Accept: application/json
+
+<> 2020-03-08T102451-2.200.json
+<> 2020-03-08T091711.200.json
+
+###
+
+POST http://127.0.0.1:8080/updateUserNameByID
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "华为"
+}
+
+<> 2020-03-08T102451-3.200.json
+<> 2020-03-08T092434.200.json
+###
+
+#根据用户id删除用户信息
+GET http://localhost:8080/deleteUserInfoByID/5
+Accept: application/json
+
+<> 2020-03-08T102451-4.200.json
+<> 2020-03-08T093205.200.json
+
+###
+
+#People 接口API
+#获取全部人员信息
+GET http://localhost:8080/getAllPeopleInfo
+Accept: application/json
+
+<> 2020-03-08T102451-5.200.json
+<> 2020-03-08T095121.200.json
+
+###
+
+#增加人员信息
+POST http://localhost:8080/addPeopleInfo
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "keer",
+  "address": "北疆",
+  "age": 25
+}
+
+<> 2020-03-08T102451-6.200.json
+<> 2020-03-08T100019.200.json
+
+###
+
+#根据id查询人员信息
+GET http://localhost:8080/getPeopleInfoByID/5
+Content-Type: application/json
+
+<> 2020-03-08T102451-7.200.json
+<> 2020-03-08T100858.200.json
+
+###
+
+#根据人员id修改人员姓名
+POST http://localhost:8080/updatePeopleNameByID
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "可耳"
+}
+
+<> 2020-03-08T102451-8.200.json
+<> 2020-03-08T101624.200.json
+
+###
+
+#根据人员id删除人员信息
+GET http://localhost:8080/deletePeopleInfoByID/5
+Content-Type: application/json
+
+<> 2020-03-08T102451-9.200.json
+<> 2020-03-08T102430.200.json
+
+###
