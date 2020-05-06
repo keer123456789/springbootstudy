@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/cache/student")
 public class StudentController {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     StudentService studentService;
+
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
     public String  addUser(@RequestBody Student student) {
         logger.info("接收到增加用户的请求，请求信息：" + student.toString());

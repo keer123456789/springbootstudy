@@ -42,21 +42,21 @@ public class CacheConfiguration extends CachingConfigurerSupport {
 
 
         //设置CacheManager的值序列化方式为 fastJsonRedisSerializer,但其实RedisCacheConfiguration默认使用StringRedisSerializer序列化key，
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        FastJsonRedisSerializer<Object> jackson2JsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
         RedisSerializationContext.SerializationPair<Object> pair = RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer);
-        RedisCacheConfiguration config=RedisCacheConfiguration.defaultCacheConfig().serializeValuesWith(pair);
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig().serializeValuesWith(pair);
 
         Map<String, RedisCacheConfiguration> configurationMap = new HashMap<>();
         configurationMap.put("c1", config);
         configurationMap.put("c2", config);
-
-        return  RedisCacheManager.builder(factory)
+        ParserConfig.getGlobalInstance().addAccept("com.keer.redisdemo.pojo.");
+        CacheManager cacheManager = RedisCacheManager.builder(factory)
                 .initialCacheNames(configurationMap.keySet())
                 .cacheDefaults(config)
                 .withInitialCacheConfigurations(configurationMap)
                 .build();
 
-
+        return cacheManager;
     }
 
 
