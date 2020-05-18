@@ -16,3 +16,4 @@ AOP 编程Demo | [aopdemo](./aopdemo) | [https://blog.csdn.net](https://blog.csd
 Spring Security(1):初体验 | [security_demo_1](./security_demo_1) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105372811)
 Spring Security(2):基于内存的用户认证 | [security_demo_2](./security_demo_2) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105393735)
 数据持久化--jpa(1)环境搭建 | [jpa_demo](./jpa_demo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/105817121)
+springboot启动前执行的几种方式 | [befor_run_demo](./befor_run_demo) | [https://blog.csdn.net](https://blog.csdn.net/weixin_41938180/article/details/106186782)

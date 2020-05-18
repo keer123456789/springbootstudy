@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @CreateTime: 2020-05-12 16:20
  * @Description:
  */
-//@Configuration
+@Configuration
 public class MyConfig_2 implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {

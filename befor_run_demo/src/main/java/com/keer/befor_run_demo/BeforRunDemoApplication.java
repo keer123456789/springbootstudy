@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BeforRunDemoApplication {
 
     public static void main(String[] args) {
-//        System.out.println("===================Service 5====================");
+        System.out.println("===================Service 5====================");
         SpringApplication.run(BeforRunDemoApplication.class, args);
     }
 

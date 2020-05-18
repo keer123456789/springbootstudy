@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @CreateTime: 2020-05-12 16:21
  * @Description:
  */
-//@Configuration
+@Configuration
 public class MyConfig_3 implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
