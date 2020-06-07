@@ -19,6 +19,7 @@
         <module>sercurity_demo_2</module>
         <module>sercurity_demo_3</module>
         <module>redisdemo</module>
+        <module>swaggerdemo</module>
     </modules>
 
 </project>
